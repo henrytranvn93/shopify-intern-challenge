@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e99e547a.chunk.css",
+    "main.js": "/static/js/main.bbcf0f7f.chunk.js",
+    "main.js.map": "/static/js/main.bbcf0f7f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.72ba9d89.js",
+    "runtime-main.js.map": "/static/js/runtime-main.72ba9d89.js.map",
+    "static/js/2.8d70204c.chunk.js": "/static/js/2.8d70204c.chunk.js",
+    "static/js/2.8d70204c.chunk.js.map": "/static/js/2.8d70204c.chunk.js.map",
+    "static/js/3.c9aaeb9e.chunk.js": "/static/js/3.c9aaeb9e.chunk.js",
+    "static/js/3.c9aaeb9e.chunk.js.map": "/static/js/3.c9aaeb9e.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.e99e547a.chunk.css.map": "/static/css/main.e99e547a.chunk.css.map",
+    "static/js/2.8d70204c.chunk.js.LICENSE.txt": "/static/js/2.8d70204c.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "/static/media/TitilliumWeb-SemiBold.3811e415.ttf",
+    "static/media/search-24px.5317dd0d.svg": "/static/media/search-24px.5317dd0d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.72ba9d89.js",
+    "static/js/2.8d70204c.chunk.js",
+    "static/css/main.e99e547a.chunk.css",
+    "static/js/main.bbcf0f7f.chunk.js"
+  ]
+}
