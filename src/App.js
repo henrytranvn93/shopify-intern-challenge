@@ -19,16 +19,19 @@ export default class App extends Component {
   handleSearch = (event) => {
     event.preventDefault();
     let searchQuery = event.target.search.value;
+    console.log(searchQuery);
     if(searchQuery !== '') {
       axios.get(`${URL}${searchQuery}&apikey=${API_KEY}`)
       .then(res => {
         if(res.data.Search) {
           this.setState({
-            results: res.data.Search
+            results: res.data.Search,
+            searchInput: searchQuery
           })
         } else {
           this.setState({
-            errorSearch: `${res.data.Error} Please try something more specific.`
+            errorSearch: `${res.data.Error} Please try something more specific!`,
+            searchInput: searchQuery,
           });
         }
       })
@@ -36,14 +39,6 @@ export default class App extends Component {
         console.log(err)
       });
     }
-  }
-
-  handleChangeInput = (event) => {
-    const searchInput = event.target.value;
-    this.setState({
-      searchInput: searchInput
-    })
-
   }
   
   handleNominate = (movieID) => {
@@ -62,16 +57,27 @@ export default class App extends Component {
     })
   }
 
+  componentDidMount() {
+    const nominationList = localStorage.getItem("nominations");
+    if (nominationList !== null) {
+      this.setState({
+        nominations: JSON.parse(nominationList)
+      })
+    } 
+  }
 
   componentDidUpdate(prevProps, prevState) {
     // this will make sure to reset the result list if there is any error from the search results
     if(prevState.errorSearch !== this.state.errorSearch && this.state.errorSearch !== null) {
       this.setState({
-        results: []
+        results: [],
+        submit: false
       })
     }
+    if (prevState.nominations !== this.state.nominations) {
+      localStorage.setItem("nominations", JSON.stringify(this.state.nominations));
+    }
   }
-
 
   render() {
     return (
@@ -79,14 +85,13 @@ export default class App extends Component {
         <h1 className="shoppies__title">The Shoppies</h1>
         <div className="shoppies__header">
           <form className="shoppies__search-form" onSubmit={this.handleSearch} >
-            <label className="shoppies__search-label">Movie title</label>
+            <label className="shoppies__search-label">MOVIE TITLE</label>
             <div className="shoppies__search-bar">
               <img src={searchIcon} alt="Search Icon" className="shoppies__search-icon"/>
               <input 
                 type="text" 
                 name="search"
-                value={this.state.searchInput}
-                onChange={this.handleChangeInput} 
+                placeholder="Search here..." 
                 className="shoppies__search-input"
               />
             </div>

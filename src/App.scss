@@ -1,9 +1,164 @@
+@use './Styles/Partials/mixins' as *;
+@use './Styles/Partials/typography' as *;
+@use './Styles/Partials/variables' as *;
+
+@keyframes delete-animation {
+  0% {
+      opacity: 1;
+      transform: translateY(600px);
+  }
+
+  10% {
+      opacity: 0.5;
+      transform: translateY(600px);
+  }
+
+  100% {
+      opacity: 0;
+      transform: translateY(100px);
+  }
+}
+
 .shoppies {
   padding: 1rem;
+
+  @include tablet {
+    padding: 1.5rem;
+  }
+
+  @include desktop {
+    padding: 1.5rem 130px;
+  }
 
 
   &__body {
     display: flex;
     flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__header, &__body-results, &__body-nominations, &__notification-banner {
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    background-color: $white;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+
+    @include tablet {
+      padding: 1.5rem;
+    }
+  }
+
+  &__notification-banner {
+    color: $green;
+  }
+
+
+  &__body-results {
+
+    @include tablet {
+      width: 50%;
+    }
+  }
+
+  &__body-nominations {
+    
+    @include tablet {
+      width: 50%;
+      margin-left: 2rem;
+    }
+  }
+
+  &__search-bar {
+    position: relative;
+    margin: 0;
+  }
+
+  &__search-input {
+      margin: 0;
+      padding: 0 0 0 1rem;
+      width: 100%;
+      box-sizing: border-box;
+      height: 36px;
+      border: 1px solid $cloud;
+      background-color: $white;
+      border-radius: 20px;
+      font-size: 13px;
+
+        &:focus {
+            outline: none;
+            border: 1px solid $indigo;
+        }
+    }
+
+  &__search-icon {
+      position: absolute;
+      right: 1rem;
+      bottom: 6px;
+  }
+
+  &__result-item, &__nominations-item {
+    display: flex;
+    padding: 12px 0;
+    min-width: 270px;
+    min-height: 30px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $cloud;
+
+    &:hover {
+      background-color: rgba(46, 102, 230, 0.07);
+    }
+
+    @include tablet {
+      height: 40px;
+    }
+  }
+
+  &__nominate-button {
+    min-width: 70px;
+    color: $white;
+    cursor: pointer;
+    background-color: $indigo;
+    border: none;
+    border-radius: 20px;
+    height: 24px;
+    font-size: 12px;
+    line-height: 20px;   
+
+    &:hover {
+      background-color: $graphite;
+    }
+
+    &:disabled {
+      background-color: $cloud;
+      color: $grey;
+    }
+
+    @include tablet { 
+      margin-left: 1rem;
+    }
+  }
+
+  &__remove-button {
+    min-width: 70px;
+    color: $slate;
+    cursor: pointer;
+    background-color: $white;
+    border: 1px solid $cloud;
+    border-radius: 20px;
+    height: 24px;
+    font-family: $titillium;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 600;
+
+    &:hover {
+      border: 1px solid $indigo;
+      color: $indigo;
+  }  
   }
 }
