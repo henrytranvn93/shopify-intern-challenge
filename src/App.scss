@@ -1,0 +1,9 @@
+.shoppies {
+  padding: 1rem;
+
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+}
