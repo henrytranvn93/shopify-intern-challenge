@@ -19,7 +19,6 @@ export default class App extends Component {
   handleSearch = (event) => {
     event.preventDefault();
     let searchQuery = event.target.search.value;
-    console.log(searchQuery);
     if(searchQuery !== '') {
       axios.get(`${URL}${searchQuery}&apikey=${API_KEY}`)
       .then(res => {

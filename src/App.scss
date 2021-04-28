@@ -2,23 +2,6 @@
 @use './Styles/Partials/typography' as *;
 @use './Styles/Partials/variables' as *;
 
-@keyframes delete-animation {
-  0% {
-      opacity: 1;
-      transform: translateY(600px);
-  }
-
-  10% {
-      opacity: 0.5;
-      transform: translateY(600px);
-  }
-
-  100% {
-      opacity: 0;
-      transform: translateY(100px);
-  }
-}
-
 .shoppies {
   padding: 1rem;
 
